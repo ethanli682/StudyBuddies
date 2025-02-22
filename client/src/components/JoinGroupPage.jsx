@@ -1,55 +1,61 @@
 import React, { useState, useMemo } from 'react';
 import { Users, MapPin, Clock, Search, ArrowLeft } from 'lucide-react';
+import GroupDetailModal from './GroupDetailModal';  // Add this import
 
-const StudyGroupCard = ({ group }) => (
-  <div className="bg-white rounded-lg shadow p-6 flex justify-between items-start">
-    <div className="space-y-4">
-      <div className="text-left">
-        <h3 className="text-xl font-semibold">{group.name}</h3>
-        <div className="flex items-center gap-2 text-gray-600 mt-2">
-          <Users className="w-4 h-4" />
-          <span>{group.currentMembers}/{group.maxMembers} members</span>
+
+const StudyGroupCard = ({ group, onViewMore }) => (
+    <div className="bg-white rounded-lg shadow p-6 flex justify-between items-start gap-4">
+      <div className="flex-1 space-y-4">
+        <div className="text-left">
+          <h3 className="text-xl font-semibold">{group.name}</h3>
+          <div className="flex items-center gap-2 text-gray-600 mt-2">
+            <Users className="w-4 h-4" />
+            <span>{group.currentMembers}/{group.maxMembers} members</span>
+          </div>
+        </div>
+  
+        <div className="space-y-2">
+          <div className="flex items-center gap-2 text-gray-600">
+            <Clock className="w-4 h-4" />
+            <span>{group.meetingTime}</span>
+          </div>
+          <div className="flex items-center gap-2 text-gray-600">
+            <MapPin className="w-4 h-4" />
+            <span>{group.location}</span>
+          </div>
+        </div>
+  
+        <div className="flex flex-wrap gap-2">
+          {group.tags.map((tag, index) => (
+            <span 
+              key={index}
+              className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
-
-      <div className="space-y-2">
-        <div className="flex items-center gap-2 text-gray-600">
-          <Clock className="w-4 h-4" />
-          <span>{group.meetingTime}</span>
-        </div>
-        <div className="flex items-center gap-2 text-gray-600">
-          <MapPin className="w-4 h-4" />
-          <span>{group.location}</span>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap gap-2">
-        {group.tags.map((tag, index) => (
-          <span 
-            key={index}
-            className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
-          >
-            {tag}
-          </span>
-        ))}
+  
+      <div className="flex flex-col gap-2 flex-shrink-0">
+        <button 
+          onClick={() => onViewMore(group)}
+          className="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+        >
+          View More
+        </button>
+        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          Join Group
+        </button>
       </div>
     </div>
-
-    <div className="flex flex-col gap-2">
-      <button className="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
-        View More
-      </button>
-      <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-        Join Group
-      </button>
-    </div>
-  </div>
-);
+  );
 
 const JoinGroupPage = ({ onBack }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
-  
+  const [selectedGroup, setSelectedGroup] = useState(null);
+
   // Example data
   const allGroups = [
     {
@@ -115,9 +121,18 @@ const JoinGroupPage = ({ onBack }) => {
     );
   };
 
+  const handleViewMore = (group) => {
+    setSelectedGroup(group);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedGroup(null);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-4xl mx-auto space-y-6">
+        
         {/* Header with back button */}
         <div className="flex items-center gap-4">
           <button 
@@ -162,7 +177,8 @@ const JoinGroupPage = ({ onBack }) => {
         <div className="space-y-4">
           {filteredGroups.length > 0 ? (
             filteredGroups.map((group, index) => (
-              <StudyGroupCard key={index} group={group} />
+              <StudyGroupCard key={index} group={group}
+              onViewMore={handleViewMore} />
             ))
           ) : (
             <div className="text-center py-8 text-gray-500">
@@ -171,6 +187,15 @@ const JoinGroupPage = ({ onBack }) => {
           )}
         </div>
       </div>
+
+            {/* Detail Modal */}
+            {selectedGroup && (
+        <GroupDetailModal 
+          group={selectedGroup}
+          onClose={handleCloseModal}
+        />
+      )}
+      
     </div>
   );
 };
