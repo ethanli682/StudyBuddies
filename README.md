@@ -1,6 +1,7 @@
 # **JumboHack 2025**
 
 # **StudySync – Find the Right Study Buddy**  
+🔗 **link**: https://study-sync-app-six.vercel.app/
 📚 **Helping College Students Overcome Social Barriers & Build Study Groups**  
 
 ## **🚀 Overview**  
