@@ -38,7 +38,7 @@ function App() {
         ) : currentPage === 'create' ? (
           <CreateGroupPage onBack={handleBack} onCreateGroup={handleCreatedGroup} />
         ) : currentPage === 'created' ? (
-          <CreatedGroupPage />
+          <CreatedGroupPage onBack={handleBack}/>
         ) : null}
       </div>
       <Footer />  {/* Footer is always rendered at the bottom */}
