@@ -8,7 +8,8 @@
 **Developers**
 - Abegail Santos
 - Ethan Li
-- Johanne Antoine
+- Johanne Antoine 
+
 **UI/UX Designers**
 - Brigitte Tang
 - Zhengfa Tang
