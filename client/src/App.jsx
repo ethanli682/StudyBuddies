@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import HomePage from './components/HomePage';
-import JoinGroupPage from './components/JoinGroupPage';
-
-
+import HomePage from './pages/HomePage';
+import JoinGroupPage from './pages/JoinGroupPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
