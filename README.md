@@ -1,8 +1,8 @@
 # **JumboHack 2025**
 
 # **StudySync – Find the Right Study Buddy**  
-🔗 **link**: https://study-sync-app-six.vercel.app/
 📚 **Helping College Students Overcome Social Barriers & Build Study Groups**  
+🔗 **link**: https://study-sync-app-six.vercel.app/
 
 ## **🚀 Overview**  
 **StudySync** is a web-based platform designed to help college students—especially those with **social anxiety, shyness, or who are new to campus**—find **study partners and accountability groups** in their classes. Our goal is to create a **seamless and stress-free way** to connect students based on learning styles, study habits, and academic goals.
