@@ -293,7 +293,7 @@ const JoinGroupPage = ({ onBack }) => {
         <div className="flex items-center gap-4 mb-8">
           <button 
             onClick={onBack}
-            className="p-2 border-2 border-black hover:bg-gray-100 transition-colors"
+            className="p-2 border-2 border-black hover:bg-gray-200 transition-colors"
           >
             <ArrowLeft className="w-6 h-6" />
           </button>
@@ -320,8 +320,8 @@ const JoinGroupPage = ({ onBack }) => {
               onClick={() => handleTagClick(tag)}
               className={`px-3 py-1 border-2 border-black transition-colors ${
                 selectedTags.includes(tag)
-                  ? 'bg-yellow-200 text-black'
-                  : 'bg-white text-black hover:bg-gray-100'
+                  ? 'bg-light-orange text-black'
+                  : 'bg-white text-black hover:bg-gray-200'
               }`}
             >
               {tag}

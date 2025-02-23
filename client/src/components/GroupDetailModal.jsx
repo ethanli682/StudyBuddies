@@ -23,6 +23,15 @@ const GroupDetailModal = ({ group, onClose }) => {
 
         {/* Content */}
         <div className="p-6 space-y-6">
+        
+                  {/* Description */}
+                  <div className="border-2 border-black p-4">
+            <h3 className="font-semibold mb-2">About this group</h3>
+            <p className="text-gray-700">
+              {group.description || "Join us for focused study sessions where we work through course material, practice problems, and prepare for exams together."}
+            </p>
+          </div>
+
           {/* Quick stats */}
           <div className="grid grid-cols-2 gap-4">
             <div className="border-2 border-black p-4">
@@ -60,7 +69,7 @@ const GroupDetailModal = ({ group, onClose }) => {
               {group.tags.map((tag, index) => (
                 <span 
                   key={index}
-                  className="px-3 py-1 border-2 border-black bg-yellow-200 text-black text-sm"
+                  className="px-3 py-1 border-2 border-black bg-light-orange text-black text-sm"
                 >
                   {tag}
                 </span>
@@ -68,23 +77,9 @@ const GroupDetailModal = ({ group, onClose }) => {
             </div>
           </div>
 
-          {/* Description */}
-          <div className="border-2 border-black p-4">
-            <h3 className="font-semibold mb-2">About this group</h3>
-            <p className="text-gray-700">
-              {group.description || "Join us for focused study sessions where we work through course material, practice problems, and prepare for exams together."}
-            </p>
-          </div>
+
         </div>
 
-        {/* Footer */}
-        <div className="border-t-2 border-black p-6">
-          <button 
-            className="w-full border-2 border-black bg-yellow-200 py-2 hover:bg-yellow-300 transition-colors text-black font-medium"
-          >
-            Request to Join
-          </button>
-        </div>
       </div>
     </div>
   );

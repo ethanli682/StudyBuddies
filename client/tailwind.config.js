@@ -9,6 +9,11 @@ export default {
       fontFamily: {
         sans: ['Space Grotesk', 'sans-serif'],
       },
+      colors: {
+        'primary-yellow': '#FFEB55',
+        'dark-yellow': '#DECD4B',
+        'light-orange': '#FFB07A'
+      }
     },
   },
   plugins: [],

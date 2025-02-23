@@ -2,7 +2,7 @@
 import React from 'react';
 import { Users, MapPin, Clock } from 'lucide-react';
 
-const StudyGroupCard = ({ group, onViewMore }) => (
+const StudyGroupCard = ({ group, onViewMore, showViewMoreButton = true, showJoinButton = true }) => (
   <div className="border-2 border-black p-4 flex justify-between items-start gap-4">
     <div className="flex-1">
       <div className="text-left mb-3">
@@ -29,7 +29,7 @@ const StudyGroupCard = ({ group, onViewMore }) => (
         {group.tags.map((tag, index) => (
           <span 
             key={index}
-            className="px-3 py-1 border-2 border-black bg-yellow-200 text-black text-sm"
+            className="px-3 py-1 border-2 border-black bg-light-orange text-black text-sm"
           >
             {tag}
           </span>
@@ -38,15 +38,19 @@ const StudyGroupCard = ({ group, onViewMore }) => (
     </div>
 
     <div className="flex flex-col gap-2 flex-shrink-0">
-      <button 
+      {showViewMoreButton && (
+        <button 
         onClick={() => onViewMore(group)}
-        className="px-4 py-2 border-2 border-black text-black hover:bg-gray-100 transition-colors"
+        className="px-4 py-2 border-2 border-black text-black hover:bg-gray-200 transition-colors"
       >
         View More
       </button>
-      <button className="px-4 py-2 border-2 border-black bg-yellow-200 text-black hover:bg-yellow-300 transition-colors">
-        Join Group
-      </button>
+      )}
+      {showJoinButton && (
+        <button className="px-4 py-2 border-2 border-black bg-primary-yellow text-black hover:bg-dark-yellow transition-colors">
+          Join Group
+        </button>
+      )}
     </div>
   </div>
 );

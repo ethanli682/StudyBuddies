@@ -87,6 +87,8 @@ const HomePage = ({ onJoinGroup, onCreateGroup }) => {  // Changed from onFindGr
               <StudyGroupCard
                 key={index}
                 group={group}
+                showViewMoreButton={false}
+                showJoinButton={false}
                 onViewMore={(group) => console.log('View more:', group.name)}
               />
             ))}

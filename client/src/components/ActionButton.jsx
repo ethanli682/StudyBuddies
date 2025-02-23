@@ -4,7 +4,7 @@ const ActionButton = ({ children, onClick }) => {
   return (
     <button 
       onClick={onClick}
-      className="border-2 border-black bg-yellow-200 px-12 py-4 text-xl font-medium hover:bg-yellow-300 transition-colors"
+      className="border-2 border-black bg-primary-yellow px-12 py-4 text-xl font-medium hover:bg-dark-yellow transition-colors"
     >
       {children}
     </button>
